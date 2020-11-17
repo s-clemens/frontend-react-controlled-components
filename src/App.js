@@ -2,14 +2,25 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [formName, setFormName] = useState('');
-  const [formAge, setFormAge] = useState(0);
-  const [formReferrer, setFormReferrer] = useState('anders');
-  const [formComments, setFormComments] = useState('');
+  const [formState, setFormState] = useState({
+    name: '',
+    age: 0,
+    referrer: 'anders',
+    'recipe-comments': '',
+  })
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formComments, formReferrer, formAge, formName);
+    console.log(formState);
+  }
+
+  function handleFormChange(e) {
+    setFormState({
+      ...formState,
+      [e.target.name]: e.target.value,
+    });
+
+    console.log(`The value of input ${e.target.name} has just been set to ${e.target.value}`);
   }
 
   return (
@@ -23,8 +34,8 @@ function App() {
             type="text"
             name="name"
             id="details-name"
-            value={formName}
-            onChange={(e) => setFormName(e.target.value)}
+            value={formState.name}
+            onChange={handleFormChange}
           />
         </label>
 
@@ -34,8 +45,8 @@ function App() {
             type="number"
             name="age"
             id="details-age"
-            value={formAge}
-            onChange={(e) => setFormAge(parseInt(e.target.value))}
+            value={formState.age}
+            onChange={handleFormChange}
           />
         </label>
       </fieldset>
@@ -48,8 +59,8 @@ function App() {
           <select
             name="found-through"
             id="referrer"
-            value={formReferrer}
-            onChange={(e) => setFormReferrer(e.target.value)}
+            value={formState.referrer}
+            onChange={handleFormChange}
           >
             <option value="google">Google</option>
             <option value="vriend">Vriend</option>
@@ -66,8 +77,8 @@ function App() {
             rows="4"
             cols="40"
             placeholder="Wat vond je van het recept?"
-            value={formComments}
-            onChange={(e) => setFormComments(e.target.value)}
+            value={formState.comments}
+            onChange={handleFormChange}
           >
           </textarea>
         </label>
