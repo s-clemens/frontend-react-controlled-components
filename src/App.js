@@ -58,11 +58,11 @@ function App() {
           </select>
         </label>
 
-        <label htmlFor="comments">
+        <label htmlFor="recipe-comments">
           Opmerkingen:
           <textarea
-            name="recipe-comments"
-            id="comments"
+            name="comments"
+            id="recipe-comments"
             rows="4"
             cols="40"
             placeholder="Wat vond je van het recept?"
