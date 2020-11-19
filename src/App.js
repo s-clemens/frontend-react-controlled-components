@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  // initialiseer één state variabele met daarin een object aan form-waardes
+  // let op: de namen van de keys moeten overeenkomen met de name-attributen van de velden
   const [formState, setFormState] = useState({
     name: '',
     age: 0,
     referrer: 'anders',
-    'recipe-comments': '',
+    comments: '',
   })
 
   function handleSubmit(e) {
@@ -14,6 +16,8 @@ function App() {
     console.log(formState);
   }
 
+  // handleFormChange wordt afgevuurd bij elke verandering en zorgt dan dat het huidige state object wordt gekopieerd
+  // alleen de object key van het bijbehorende inputveld wordt overschreven met een nieuwe waarde
   function handleFormChange(e) {
     setFormState({
       ...formState,
@@ -69,11 +73,11 @@ function App() {
           </select>
         </label>
 
-        <label htmlFor="comments">
+        <label htmlFor="recipe-comments">
           Opmerkingen:
           <textarea
-            name="recipe-comments"
-            id="comments"
+            name="comments"
+            id="recipe-comments"
             rows="4"
             cols="40"
             placeholder="Wat vond je van het recept?"
