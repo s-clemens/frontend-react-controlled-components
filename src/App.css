@@ -1,1 +1,31 @@
 /*Schrijf hier jouw css voor jouw formulier*/
+.info-box{
+    border: 1px solid lightgrey;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+.info-box h2{
+    display: table;
+    position: relative;
+    top: -60px;
+    margin-bottom: -60px;
+    background-color: white;
+    margin-left: -20px;
+
+}
+
+.info-box input{
+    margin-left: 10px;
+}
+
+form{
+    width: 50%;
+    margin: 50px auto 0;
+}
+
+#opmerkingen-box{
+    width: calc(100% - 20px);
+    height: 80px;
+    resize: none;
+}
